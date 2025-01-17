@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/allure-framework/allure-csharp/2.12.1/Allure.Reqnroll/Schemas/allureConfig.schema.json",
+  "allure": {
+    "directory": "../../allure-results",
+    "links": [
+      "https://jira.net/{issue}",
+      "https://jira.net/{tms}"
+    ],
+    "gherkinPatterns": {
+      "stepArguments": {
+        "createFromDataTables": true,
+        "nameColumn": "a.*",
+        "valueColumn": "v.*"
+      },
+      "grouping": {
+        "suites": {
+          "parentSuite": "(ui|api)",
+          "suite": "(core|sales|aux)",
+          "subSuite": "(create|update|delete)"
+        },
+        "behaviors": {
+          "epic": "epic:(.+)",
+          "story": "story:(.+)"
+        }
+      },
+      "metadata": {
+        "owner": "owner:(.+)",
+        "severity": "(normal|blocker|critical|minor|trivial)",
+        "label": "label:([\\w]+):(.+)"
+      },
+      "links": {
+        "link": "link:(.+)",
+        "issue": "\\d+",
+        "tms": "tms:(\\d+)"
+      }
+    }
+  }
+}
